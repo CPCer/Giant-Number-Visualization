@@ -1,0 +1,98 @@
+[
+  {
+    "id": "one",
+    "name": "一",
+    "value": "1",
+    "value_description": "自然数之始，计数的单位",
+    "year": -50000,
+    "year_text": "史前",
+    "inventor": "人类早期文明",
+    "story": "1 是人类计数的起点。从结绳、刻骨到算筹，文明在「一」之上构建了整个数字大厦。它是攀升之路的第一块踏脚石。",
+    "scale_level": 0,
+    "color": "#9be8ff"
+  },
+  {
+    "id": "wan",
+    "name": "万",
+    "value": "10,000 = 10⁴",
+    "value_description": "古代汉语中第一个独立命名的大数",
+    "year": -3000,
+    "year_text": "约公元前 3000",
+    "inventor": "古苏美尔 / 古华夏",
+    "story": "「万」是古代东方最早拥有独立名称的大数。甲骨文中已见其形，古人曾将其奉为「数之极」，直到更大的单位被陆续发明。",
+    "scale_level": 1,
+    "color": "#7dd3fc"
+  },
+  {
+    "id": "googol",
+    "name": "古戈尔",
+    "value": "10¹⁰⁰",
+    "value_description": "1 后跟 100 个 0",
+    "year": 1920,
+    "year_text": "1920",
+    "inventor": "Edward Kasner / Milton Sirotta",
+    "story": "1920 年代，美国数学家卡斯纳让 9 岁的侄子米尔顿为一个 1 后跟 100 个 0 的数取名。米尔顿脱口而出「Googol」，从此进入数学词典。Google 的公司名正是它的拼写变体。",
+    "scale_level": 2,
+    "color": "#67e8f9"
+  },
+  {
+    "id": "googolplex",
+    "name": "古戈尔普勒克斯",
+    "value": "10^(10¹⁰⁰)",
+    "value_description": "1 后跟一个古戈尔个 0",
+    "year": 1938,
+    "year_text": "1938",
+    "inventor": "Kasner & Newman",
+    "story": "卡斯纳接着定义了古戈尔普勒克斯：1 后面跟着一个古戈尔个 0。即使把可观测宇宙中的全部原子都写成 0，也远远写不完这个数。它是「指数塔」世界的入口。",
+    "scale_level": 3,
+    "color": "#22d3ee"
+  },
+  {
+    "id": "skewes",
+    "name": "斯奎斯数",
+    "value": "≈ e^e^e^79",
+    "value_description": "素数计数函数 π(x) 与 x/ln x 交点的上界",
+    "year": 1933,
+    "year_text": "1933",
+    "inventor": "Stanley Skewes",
+    "story": "1933 年，南非数学家斯坦利·斯奎斯在研究素数分布时得到一个惊人的上界：约 e^e^e^79。它曾长期是数学证明中出现的「最大的数」，直到被葛立恒数超越。",
+    "scale_level": 3.4,
+    "color": "#06b6d4"
+  },
+  {
+    "id": "graham",
+    "name": "葛立恒数",
+    "value": "G = g₆₄ (高德纳箭头)",
+    "value_description": "拉姆齐理论上色问题中保证单色矩形出现的维数上界",
+    "year": 1977,
+    "year_text": "1977",
+    "inventor": "Ronald Graham",
+    "story": "1977 年，罗纳德·葛立恒在拉姆齐理论中构造了这个数作为某个问题的上界。它大得无法用常规科学记数法书写，只能用高德纳箭头表示，曾载入《吉尼斯世界纪录》为「数学证明中最大的数」。",
+    "scale_level": 4.5,
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "tree3",
+    "name": "TREE(3)",
+    "value": "TREE(3)",
+    "value_description": "树图序列 TREE(n) 在 n=3 时的项数",
+    "year": 2006,
+    "year_text": "2006",
+    "inventor": "Harvey Friedman",
+    "story": "TREE(3) 来自哈维·弗里德曼的树图序列问题。它远比葛立恒数庞大——如果把葛立恒数当作一个「小」的起点，TREE(3) 依然大到无法用任何熟悉的箭头记号直接描述。",
+    "scale_level": 5.5,
+    "color": "#3b82f6"
+  },
+  {
+    "id": "rayo",
+    "name": "拉约数",
+    "value": "Rayo's number",
+    "value_description": "一阶集合论中 Googol 个符号能定义的最大数",
+    "year": 2007,
+    "year_text": "2007",
+    "inventor": "Agustín Rayo",
+    "story": "2007 年的大数决斗中，哲学家阿古斯丁·拉约用集合论语言定义出「拉约数」：用不超过一阶集合论的 Googol 个符号能定义的最大有限数。它把「大」推向了语言本身能描述的极限——但即便如此，它离真正的无限仍遥不可及。",
+    "scale_level": 6.5,
+    "color": "#8b5cf6"
+  }
+]
