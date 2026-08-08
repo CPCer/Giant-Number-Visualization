@@ -3,6 +3,8 @@ export interface GiantNumber {
   name: string;
   value: string;
   value_description: string;
+  /** 量级参照：一句话说明该数在现实/数学中的位置，用于卡片展示 */
+  magnitude_note: string;
   year: number;
   year_text: string;
   inventor: string;

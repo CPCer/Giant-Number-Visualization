@@ -14,6 +14,10 @@ export interface SiteNode {
   /** 认知可见性：false 时整个站点不可见（被更大数的认知边界遮挡） */
   cognitiveVisible: boolean;
   setCognitiveVisible(visible: boolean): void;
+  /** 从 alpha=0 渐显（瀑布凝聚阶段调用） */
+  fadeIn(): void;
+  /** 触发着陸脈衝：縮放 + 擴張環（瀑布著陸階段調用） */
+  triggerLandingPulse(): void;
   update(camera: CameraState, time: number, selectedId: string | null): void;
 }
 
@@ -91,6 +95,13 @@ export function createNumberScene(
     container.addChild(root);
 
     let cognitiveVisible = true;
+    let fadingIn = false;
+    let fadeStart = 0;
+    let pulseStart = -1;
+
+    // 着陸擴張環（默認不可見，triggerLandingPulse 時繪製）
+    const pulseRing = new PIXI.Graphics();
+    root.addChild(pulseRing);
 
     nodes.push({
       id: item.id,
@@ -102,6 +113,16 @@ export function createNumberScene(
       setCognitiveVisible(visible: boolean) {
         cognitiveVisible = visible;
         root.visible = visible;
+      },
+      fadeIn() {
+        cognitiveVisible = true;
+        root.visible = true;
+        root.alpha = 0;
+        fadingIn = true;
+        fadeStart = performance.now();
+      },
+      triggerLandingPulse() {
+        pulseStart = performance.now();
       },
       update(camera, time, selectedId) {
         if (!cognitiveVisible) return;
@@ -118,9 +139,39 @@ export function createNumberScene(
         label.scale.set(uiScale);
         card.scale.set(uiScale);
         const pulse = 1 + Math.sin(time * 0.003 + index) * 0.07;
-        ring.scale.set(pulse);
         aura.alpha = isSelected ? 0.95 : 0.6;
-        root.alpha = zoom < 0.06 ? 0.4 : 1;
+
+        // 漸顯動畫（瀑布凝聚階段）
+        if (fadingIn) {
+          const ft = clamp((time - fadeStart) / 500, 0, 1);
+          root.alpha = ft * (zoom < 0.06 ? 0.4 : 1);
+          if (ft >= 1) fadingIn = false;
+        } else {
+          root.alpha = zoom < 0.06 ? 0.4 : 1;
+        }
+
+        // 著陸脈衝（瀑布著陸階段）
+        if (pulseStart >= 0) {
+          const pt = clamp((time - pulseStart) / 500, 0, 1);
+          const pulseScale = pt < 0.4 ? 0.5 + pt * 1.75 : 1.2 - (pt - 0.4) * 0.333;
+          aura.scale.set(pulseScale);
+          ring.scale.set(pulseScale);
+          pulseRing.clear();
+          if (pt < 1) {
+            const rr = pt * 90;
+            const ra = (1 - pt) * 0.8;
+            pulseRing.lineStyle(3, color, ra).drawCircle(0, 0, rr);
+          }
+          if (pt >= 1) {
+            pulseStart = -1;
+            aura.scale.set(1);
+            ring.scale.set(pulse);
+          }
+        } else {
+          aura.scale.set(1);
+          ring.scale.set(pulse);
+          pulseRing.clear();
+        }
       },
     });
   });
